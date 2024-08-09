@@ -57,6 +57,18 @@ ui = dashboardPage(
                          popover(title = "",
                                  content = "Choose the location(s) in the water column to be studied.",
                                  placement = "right")
+                ),
+                
+                fluidRow(
+                  box(title = HTML(paste0("Monitoring Plan")), 
+                      maximizable = T,
+                      width = 12,
+                      downloadButton("downloadData", "Download Full Dataset"),
+                      fluidRow(
+                        div(style = "overflow-x: scroll",
+                            DT::dataTableOutput("table1")
+                        ))
+                  )
                 )
       )
     )
